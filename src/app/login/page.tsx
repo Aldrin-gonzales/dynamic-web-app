@@ -1,17 +1,20 @@
 'use client';
 
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation'; // Next.js router for client-side navigation
 
+{/*In area State Management for form field and error message. It store email input, password input, and error message*/}
 export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const router = useRouter();
 
+  // Handle form submission
   const handleLogin = async (e: React.FormEvent) => {
-    e.preventDefault();
+    e.preventDefault(); // Prevent default form submission behavior
 
+    // Clean and normalize input values
     const cleanEmail = email.trim().toLowerCase();
     const cleanPassword = password.trim();
 
@@ -22,6 +25,7 @@ export default function LoginPage() {
         email: 'admin@admin.com',
         isAdmin: true,
       };
+      // Store user data in localStorage
       localStorage.setItem('user', JSON.stringify(adminUser));
       setTimeout(() => {
         router.push('/posts');
@@ -32,8 +36,10 @@ export default function LoginPage() {
     const res = await fetch('https://jsonplaceholder.typicode.com/users');
     const users = await res.json();
 
+    // Find user by email
     const user = users.find((u: any) => u.email.toLowerCase() === cleanEmail);
 
+    // Check if user exists and password matches username
     if (user && cleanPassword === user.username) {
       localStorage.setItem('user', JSON.stringify({ ...user, isAdmin: false }));
       router.push('/myposts');
@@ -45,14 +51,17 @@ export default function LoginPage() {
   return (
     <div className="fixed inset-0 flex items-center justify-center ">
       <div className="w-full max-w-md bg-white/60 backdrop-blur-xl rounded-2xl shadow-2xl p-8">
+        {/*Header section*/}
         <div className="text-center mb-6">
 
           <h1 className="text-3xl font-bold text-gray-800 mt-2">Welcome Back</h1>
           <p className="text-gray-600 text-sm">Sign in to continue</p>
         </div>
 
+        {/*Login form*/]
         <form onSubmit={handleLogin} className="space-y-5">
           <div>
+            {/*Email input field*/}
             <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
             <input
               type="email"
@@ -63,6 +72,7 @@ export default function LoginPage() {
             />
           </div>
 
+          {/*Password input field*/}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">Password</label>
             <input
@@ -74,10 +84,12 @@ export default function LoginPage() {
             />
           </div>
 
+          {/*Error message delay*/}
           {error && (
             <p className="text-red-600 text-sm text-center">{error}</p>
           )}
 
+          {/*Submit button*/}
           <div className="mt-4">
             <button
               type="submit"
@@ -87,6 +99,7 @@ export default function LoginPage() {
             </button>
           </div>
 
+          {/*Registration link*/}
           <div className="text-center mt-4">
             <a href="/register" className="text-blue-600 hover:underline text-sm">
               Don’t have an account? Register
