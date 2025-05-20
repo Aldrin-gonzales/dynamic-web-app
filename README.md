@@ -1,11 +1,11 @@
 Dynamic Web Application using Next.js and Tailwind CSS
 
-Project Description
+Project Description:
 This project utilizes modern frontend tools like Next.js and Tailwind CSS to create a 
 dynamic app. It mimics a social media network with user interactions, real-time data visualizations, and a 
 smooth user experience, while also incorporating Google Maps for location-based features.
 
-Tools & Libraries 
+Tools & Libraries:
 
 • Next.js
 
@@ -26,7 +26,7 @@ Tools & Libraries
 • GitHub 
 
 
-Features 
+Features:
 
 • User and post listing via JSON Placeholder 
 
@@ -41,7 +41,7 @@ Features
 • Deployment to Vercel 
 
 
-Installation & Setup 
+Installation & Setup:
 
 • Clone repo: git clone <repo_url> 
 
@@ -52,20 +52,20 @@ Installation & Setup
 • Launch app: npm run dev 
 
 
-Login Credentials 
+Login Credentials:
 
 Admin: admin@admin.com / admin123 
 
 Sample User: Sincere@april.biz / Bret 
 
-Deployment 
+Deployment:
 
 https://dynamic-web-app-three.vercel.app/
 
-Video Presentation
+Video Presentation:
 https://drive.google.com/file/d/15lu6fetHGLu6tuf7OzDSJIVUaur0ABY0/view?usp=sharing
 
-Contributions
+Contributions:
 
 Member 
 Aldrin L. Gonzales 
